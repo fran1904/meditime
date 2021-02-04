@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard')
+})
+
 app.get('/register', (req, res) => {
     res.render('register')
 })
@@ -44,7 +48,7 @@ app.get('/medikamente', (req, res) => {
     Medicine.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('/medikamente', { Medicines: data })
+        res.render('medikamente', { Medicines: data })
         })
         .catch(err => console.log(err))
 })
@@ -55,7 +59,7 @@ app.get('/therapie', (req, res) => {
     Therapy.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('/therapie', { Therapys: data })
+        res.render('therapie', { Therapys: data })
         })
         .catch(err => console.log(err))
 })
@@ -73,7 +77,7 @@ app.post('/neue-medikament', (req, res) => {
 
     Medicine.save()
         .then(result => {
-            res.redirect('/medikamente')
+            res.redirect('medikamente')
         })
         .catch(err => console.log(err))
 })
@@ -85,7 +89,7 @@ app.post('/neue-medikament', (req, res) => {
 
     Medicine.save()
         .then(result => {
-            res.redirect('/medikamente')
+            res.redirect('medikamente')
         })
         .catch(err => console.log(err))
 })
@@ -97,7 +101,7 @@ app.post('/neue-therapie', (req, res) => {
 
     Medicine.save()
         .then(result => {
-            res.redirect('/therapie')
+            res.redirect('therapie')
         })
         .catch(err => console.log(err))
 })
