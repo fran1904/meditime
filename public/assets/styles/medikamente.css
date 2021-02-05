@@ -1,0 +1,54 @@
+#medikamente .grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 230px;
+      grid-template-rows: 230px;
+  grid-gap: 30px;
+}
+
+#medikamente .icon-wrap {
+  height: 155px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#medikamente .icon-wrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#medikamente .icon-wrap small {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+#medikamente .icon-wrap-purple {
+  background: #F0E5FA;
+}
+
+#medikamente .icon-wrap-yellow {
+  background: #FDEEE0;
+}
+
+#medikamente .dark-purple {
+  color: #994EDF;
+}
+
+#medikamente .dark-yellow {
+  color: #F29949;
+}
+
+#medikamente article > p {
+  font-size: 0.75rem;
+}
+
+#medikamente .mb-10 {
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=medikamente.css.map */
