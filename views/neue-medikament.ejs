@@ -6,15 +6,24 @@
 
 <form action="/neue-medikament" method="POST">
     <input type="text" name="articlename"  placeholder="Produkt-Name">
-    <input type="text" name="url"  placeholder="Dosierung">
-    <input type="text" name="url"  placeholder="Darreichungsformen">
-    <input type="text" name="url"  placeholder="Menge">
-    <input type="text" name="url"  placeholder="Auswählen">
+    <input type="text" name="Dosierung"  placeholder="Dosierung">
+
+    <select name="Darreichungsformen" id="Darreichungsformen" placeholder="Darreichungsformen">
+        <option value="Tabletten">Tabletten</option>
+        <option value="Kapseln">Kapseln</option>
+        <option value="Salbe">Salbe</option>
+        <option value="Granulat">Granulat</option>
+      </select>
+
+    <input type="text" name="Menge"  placeholder="Menge">
+
+    <select name="Auswählen" id="Auswählen" placeholder="Auswählen">
+        <option value="Mililiter">Mililiter</option>
+        <option value="Gramm">Gramm</option>
+        <option value="Kilogramm">Kilogramm</option>
+        <option value="Miligram">Miligram</option>
+      </select>
+
+    <input type="submit" value="Medekament anlegen">
 </form>
-
-<a href="">Weiter</a>
-
-
-
-
 <%- include('./partials/footer') %>
