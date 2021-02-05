@@ -64,35 +64,93 @@ app.get('/therapie', (req, res) => {
         .catch(err => console.log(err))
 })
 
+
+
+
+
+
+
+
 // CREATE
 
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
-app.get('/neue-medikament', (req, res) => {
-    res.render('/neue-medikament')
+app.get('/', (req, res) => {
+    Medicine.find()
+    .then(result => {
+        res.render('medikamente', {Medicine: result})
+    })
+    .catch(err => console.log(err) )
 })
+
+////// die brauche nicht 
+// app.get('/neue-medikament', (req, res) => {
+//     Medicine.aggregate([{ $sample: { size: 6 } }])
+//     .then(result => {
+//         res.render('neue-medikament', {Medicine: result})
+//     })
+// })
 
 // Create a new DB entry from the frontend with POST
+// app.post('/neue-medikament', (req, res) => {
+//     const Medicine = new Medicine(req.body)
+
+//     Medicine.save()
+//         .then(result => {
+//             res.redirect('medikamente')
+//         })
+//         .catch(err => console.log(err))
+// })
+///// bis hier
+
+
+
+
+
+
+
+
+app.get('/neue-medikament', (req, res) => {
+    // console.log("hallo")
+    Medicine.aggregate([{ $sample: { size: 6 } }])
+    .then(result => {
+        res.render('neue-medikament', {Medicine: result})
+    })
+})
+
+
+
+
+
+//Creates a new DB entry from the frontend with POST
 app.post('/neue-medikament', (req, res) => {
+    
     const Medicine = new Medicine(req.body)
 
     Medicine.save()
         .then(result => {
-            res.redirect('medikamente')
+            res.redirect('medikamentes')
         })
         .catch(err => console.log(err))
 })
 
 
-// Creates a new DB entry from the frontend with POST
-app.post('/neue-medikament', (req, res) => {
-    const Medicine = new Medicine(req.body)
 
-    Medicine.save()
-        .then(result => {
-            res.redirect('medikamente')
-        })
-        .catch(err => console.log(err))
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Creates a new DB entry from the frontend with POST
@@ -105,3 +163,6 @@ app.post('/neue-therapie', (req, res) => {
         })
         .catch(err => console.log(err))
 })
+
+
+
