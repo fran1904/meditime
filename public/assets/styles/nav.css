@@ -1,13 +1,31 @@
+.active {
+  color: #79CCAA;
+}
+
 nav {
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: .8rem;
+  color: #797979;
+  padding: .8rem .2rem;
+  border-top: 1px solid grey;
+  background: #ffffff;
 }
 
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+nav ul li {
+  text-align: center;
 }
 /*# sourceMappingURL=nav.css.map */
