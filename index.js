@@ -82,7 +82,13 @@ app.post('/neue-medikament', (req, res) => {
         .catch(err => console.log(err))
 })
 
-
+app.get('/single-med/:id', (req, res) => {
+    Medicine.findById(req.params.id)
+         .then(data => {
+             res.render('single-med', { Medicine: data })    // Note that you DON'T need to include /:id in this line
+         })
+         .catch(err => console.log(err))
+ }) 
 
 // Creates a new DB entry from the frontend with POST
 app.post('/neue-therapie', (req, res) => {
@@ -94,3 +100,5 @@ app.post('/neue-therapie', (req, res) => {
         })
         .catch(err => console.log(err))
 })
+
+
