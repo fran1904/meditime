@@ -62,4 +62,8 @@
   color: #ffffff;
   font-family: "Fira Sans", sans-serif;
 }
+
+#home p:last-of-type span {
+  font-weight: 700;
+}
 /*# sourceMappingURL=home.css.map */
