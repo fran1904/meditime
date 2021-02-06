@@ -73,33 +73,22 @@ app.get('/neue-medikament', (req, res) => {
 
 // Create a new DB entry from the frontend with POST
 app.post('/neue-medikament', (req, res) => {
-    const Medicine = new Medicine(req.body)
+    const newMedicine = new Medicine(req.body)
 
-    Medicine.save()
+    newMedicine.save()
         .then(result => {
             res.redirect('medikamente')
         })
         .catch(err => console.log(err))
 })
 
-
-// Creates a new DB entry from the frontend with POST
-app.post('/neue-medikament', (req, res) => {
-    const Medicine = new Medicine(req.body)
-
-    Medicine.save()
-        .then(result => {
-            res.redirect('medikamente')
-        })
-        .catch(err => console.log(err))
-})
 
 
 // Creates a new DB entry from the frontend with POST
 app.post('/neue-therapie', (req, res) => {
-    const Medicine = new Medicine(req.body)
+    const newTherapy = new Therapy(req.body)
 
-    Medicine.save()
+    newTherapy.save()
         .then(result => {
             res.redirect('therapie')
         })
