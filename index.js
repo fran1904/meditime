@@ -99,7 +99,7 @@ app.get('/therapie', (req, res) => {
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
 
 app.get('/neue-medikament', (req, res) => {
-    res.render('neue-medikament')
+    res.render('neue-medikament', {title: "Neue Medikament"})
 })
 
 // Creates a new DB entry from the frontend with POST
@@ -118,7 +118,7 @@ app.post('/neue-medikament', (req, res) => {
 app.get('/single-med/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('single-med', { Medicine: data })    // Note that you DON'T need to include /:id in this line
+             res.render('single-med', { title: "My Medikament", Medicine: data })    // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  }) 
