@@ -1,11 +1,24 @@
 <%- include('./partials/head') %>
 
-
-<h1>This is the Create or 'New medicine' page with form </h1>
-
-
-
-
-<%- include('./partials/nav') %>
-
+    <div id="Formular">
+   
+      <form action="/neue-medikament" method="POST">
+        ​
+            <input class="product_name" type="text" name="product_name" placeholder="Produktname">
+        ​
+            <input class="dose" type="text" name="dose" placeholder="Dosierung in ml/mg">
+        ​
+            <select  name="drug_type" placeholder="Darreichungsformen">
+                <option value="Tablet" selected>Tablette</option>
+                <option value="Injection">Injektion</option>
+            </select>
+        ​
+            <input class="inventory" type="text" name="inventory" placeholder="Inventory">
+            
+            <input class="submit" type="submit" value="Medikament anlegen">
+        </form>
+    </div>
+   
+</form>
+<%- include('./partials/footer') %>
 

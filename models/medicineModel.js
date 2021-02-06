@@ -11,10 +11,11 @@ const medicineSchema = new Schema({
        dose: {
                type: String,
                required: true
+
        },
        drug_type: {
                type: String,
-               required: true
+               required: false
        },
        inventory: {
                type: String,
