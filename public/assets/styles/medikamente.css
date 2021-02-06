@@ -1,0 +1,87 @@
+#medikamente h3 {
+  margin-top: 10px;
+}
+
+#medikamente h3 + p {
+  color: #666666;
+}
+
+#medikamente h3, #medikamente p {
+  font-family: 'Roboto';
+}
+
+#medikamente .grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 230px;
+      grid-template-rows: 230px;
+  grid-gap: 20px;
+}
+
+#medikamente .icon-wrap {
+  height: 155px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#medikamente .icon-wrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#medikamente .icon-wrap small {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+#medikamente .icon-wrap-purple {
+  background: #F0E5FA;
+}
+
+#medikamente .icon-wrap-yellow {
+  background: #FDEEE0;
+}
+
+#medikamente .dark-purple {
+  color: #994EDF;
+}
+
+#medikamente .dark-yellow {
+  color: #F29949;
+}
+
+#medikamente article > p {
+  font-size: 0.75rem;
+}
+
+#medikamente .mb-10 {
+  margin-bottom: 10px;
+}
+
+#medikamente p {
+  color: red;
+}
+
+#medikamente a.btn {
+  margin-top: 20px;
+  font-family: Roboto;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 0;
+  width: 100%;
+  background: #7acdaa;
+  -webkit-transition: background-color .5s ease;
+  transition: background-color .5s ease;
+}
+
+#medikamente a.btn:hover {
+  background-color: #55be92;
+}
+/*# sourceMappingURL=medikamente.css.map */

@@ -97,22 +97,17 @@ app.get('/therapie', (req, res) => {
 // CREATE
 
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
-app.get('/', (req, res) => {
-    // console.log(Medicine)
-    Medicine.find()
-    .then(result => {
-        res.render('medikamente', { title: "medikamente", Medicines: result})
-    })
-    .catch(err => console.log(err) )
-})
 
 app.get('/neue-medikament', (req, res) => {
-    // console.log("hallo")
-    Medicine.aggregate([{ $sample: { size: 30 } }])
-    .then(result => {
-        res.render('neue-medikament', { title: "medikamente", Medicines: result})
-    })
+    res.render('neue-medikament')
 })
+
+// Create a new DB entry from the frontend with POST
+app.post('/neue-medikament', (req, res) => {
+    const newMedicine = new Medicine(req.body)
+
+    newMedicine.save()
+
 
 
 // Creates a new DB entry from the frontend with POST
@@ -128,25 +123,25 @@ app.post('/neue-medikament', (req, res) => {
         .catch(err => console.log(err))
 })
 
-
-
-
-
-
-
+app.get('/single-med/:id', (req, res) => {
+    Medicine.findById(req.params.id)
+         .then(data => {
+             res.render('single-med', { Medicine: data })    // Note that you DON'T need to include /:id in this line
+         })
+         .catch(err => console.log(err))
+ }) 
 
 
 // Creates a new DB entry from the frontend with POST
 app.post('/neue-therapie', (req, res) => {
-    const Medicine = new Medicine(req.body)
+    const newTherapy = new Therapy(req.body)
 
-    Medicine.save()
+    newTherapy.save()
         .then(result => {
             res.redirect('therapie')
         })
         .catch(err => console.log(err))
 })
-
 
 
 

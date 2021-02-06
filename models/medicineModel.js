@@ -6,11 +6,12 @@ const medicineSchema = new Schema({
 
        product_name: {
                type: String,
-               required: false
+               required: true
        },
        dose: {
                type: String,
-               required: false
+               required: true
+
        },
        drug_type: {
                type: String,
@@ -18,7 +19,7 @@ const medicineSchema = new Schema({
        },
        inventory: {
                type: String,
-               required: false
+               required: true
        }        
 }, { timestamps: true })
 

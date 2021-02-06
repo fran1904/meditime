@@ -1,4 +1,26 @@
 <%- include('./partials/head') %>
+
+<div id="medikamente">
+<div class="grid-container f-container">
+
+
+
+
+    <% Medicines.forEach(doc => { %>
+        
+    <article class="med-wrap">
+     
+   
+        <div class="icon-wrap <%= (doc.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
+
+            <img src="<%= (doc.drug_type == "Tablet") ? "assets/img/pill.svg" : "assets/img/syringe.svg" %>" alt="drug-icon">
+            <small class="<%= (doc.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= doc.inventory %></small>
+        </div>
+   
+
+        <h3> <a href="/single-med/<%= doc.id %>"><%= doc.product_name %></a> </h3>
+        <p class="mb-10"> <%= doc.drug_type %> <%= doc.dose %><%= (doc.drug_type == "Tablet") ? "mg" : "ml" %></p>
+
 <%- include('./partials/nav') %>
 <div id="medikamente">
 <div class="grid-container f-container">
@@ -16,18 +38,22 @@
         </div>
         <h3> <%= doc.product_name %> </h3>
         <p class="mb-10"> <%= doc.drug_type %> <%= doc.dose %> </p>
+        
         <p>10 days stock</p>
   
     </article>
                     
         <%})%>
+
+
 </div>
+
+<a href="/neue-medikament" class="btn">
++ Medikament anlegen
+</a>
+
 </div>
-
-
-<a href="/neue-medikament">Medikament anlegen</a>
-<h1>Hi from the medikamente page. All medicines are looped thru' here</h1>
-
-
+<%- include('./partials/nav') %>
 
 <%- include('./partials/footer') %>
+
