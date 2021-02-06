@@ -2,10 +2,10 @@
 <nav>
     <ul>
         <!-- <li><a href="/auth/login">Home</a></li> -->
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/medikamente">Medikamente</a></li>
-        <li><a href="/therapie">Therapie</a></li>
-        <li><a href="/profile">Profil</a></li>
+        <li><a href="/dashboard" class="<%=title === 'dashboard' ? 'active': ''%>"><img src="<%=title === 'dashboard' ? '../assets/img/dash-active.svg': '../assets/img/dash-icon.svg' %>" alt=""> <br> Übersicht</a></li>
+        <li><a href="/medikamente" class="<%=title === 'medikamente' ? 'active': ''%>"><img src="<%=title === 'medikamente' ? '../assets/img/med-active.svg': '../assets/img/med-icon.svg' %>" alt=""> <br>Medikamente</a></li>
+        <li><a href="/therapie" class="<%=title === 'therapie' ? 'active': ''%>"><img src="<%=title === 'therapie' ? '../assets/img/therapy-active.svg': '../assets/img/therapy-icon.svg' %>" alt=""> <br>Therapie</a></li>
+        <li><a href="/profile" class="<%=title === 'profile' ? 'active': ''%>"><img src="<%=title === 'profile' ? '../assets/img/profile-active.svg' : '../assets/img/profile-icon.svg' %>" alt=""> <br>Profil</a></li>
         
     </ul>
 </nav>

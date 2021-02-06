@@ -57,16 +57,14 @@ const authCheck = (req, res, next) => {
 
 // Load the homepage
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', {title: "home"})
 })
 
 app.get('/dashboard', authCheck,(req, res) => {
-    res.render('dashboard')
+    res.render('dashboard', {title: "dashboard"})
 })
 
-app.get('/register', (req, res) => {
-    res.render('register')
-})
+
 
 
 
@@ -75,7 +73,7 @@ app.get('/medikamente', (req, res) => {
     Medicine.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('medikamente', { Medicines: data })
+        res.render('medikamente', { title: "medikamente", Medicines: data })
         })
         .catch(err => console.log(err))
 })
@@ -86,7 +84,7 @@ app.get('/therapie', (req, res) => {
     Therapy.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('therapie', { Therapys: data })
+        res.render('therapie', { title: "therapie", Therapys: data })
         })
         .catch(err => console.log(err))
 })
@@ -164,10 +162,9 @@ app.get('/auth/login', (req, res) => {
 app.get('/profile', authCheck, (req, res) => {
     // res.render('profile')
     console.log("Profile:", req.user);
-    res.render('profile', {data: req.user})
+    res.render('profile', {title: "profile", data: req.user})
     res.end()
 })
 
 // app.use('/profile', profileRoutes)
-
 

@@ -1,0 +1,65 @@
+#home {
+  height: 100vh;
+  text-align: center;
+  background: url(../img/BG.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+
+#home div {
+  padding: 4rem 2rem 0;
+  margin-bottom: -3rem;
+}
+
+#home div img {
+  width: 100%;
+}
+
+#home h1 {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  color: #314259;
+}
+
+#home h1 span {
+  font-weight: 900;
+}
+
+#home p:first-of-type {
+  margin: 1rem auto;
+  color: #B1BDC6;
+  font-family: "Roboto", sans-serif;
+}
+
+#home a {
+  padding: .5rem 1rem;
+  width: 80%;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-family: "Fira Sans", sans-serif;
+}
+
+#home a img {
+  margin-left: 1rem;
+}
+
+#home a:first-of-type {
+  background: #ffffff;
+  color: #4A4A4A;
+  margin: 12rem auto 1rem;
+}
+
+#home a:last-of-type {
+  margin-bottom: 5vh;
+  background: #5DA98B;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+#home p:last-of-type {
+  margin: 0 auto 1rem;
+  color: #ffffff;
+  font-family: "Fira Sans", sans-serif;
+}
+/*# sourceMappingURL=home.css.map */
