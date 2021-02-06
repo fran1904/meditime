@@ -103,15 +103,7 @@ app.post('/neue-medikament', (req, res) => {
         .catch(err => console.log(err))
 })
 
-app.get('/single/:medikamentId',(req,res) => {
-    // console.log(req.params.MedikamentId)
-    // console.log(params)
-    Medicines.findById(req.params.MedikamentId)
-    .then(result => {
-        res.render('medikamente', {Medikament: result})
-    })
-    .catch(err => console.log(err))
-})
+
 
 
 
