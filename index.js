@@ -68,7 +68,7 @@ app.get('/therapie', (req, res) => {
 
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
 app.get('/neue-medikament', (req, res) => {
-    res.render('/neue-medikament')
+    res.render('neue-medikament')
 })
 
 // Create a new DB entry from the frontend with POST

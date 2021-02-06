@@ -67,4 +67,21 @@
 #medikamente p {
   color: red;
 }
+
+#medikamente a.btn {
+  margin-top: 20px;
+  font-family: Roboto;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 0;
+  width: 100%;
+  background: #7acdaa;
+  -webkit-transition: background-color .5s ease;
+  transition: background-color .5s ease;
+}
+
+#medikamente a.btn:hover {
+  background-color: #55be92;
+}
 /*# sourceMappingURL=medikamente.css.map */
