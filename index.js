@@ -65,8 +65,6 @@ app.get('/dashboard', authCheck,(req, res) => {
 })
 
 
-
-
 // Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
 app.get('/medikamente', (req, res) => {
     Medicine.find()
@@ -123,8 +121,46 @@ app.get('/single-med/:id', (req, res) => {
          .catch(err => console.log(err))
  }) 
 
+app.delete('/delete/:id', (req, res) => {
+    Medicine.findByIdAndDelete(req.params.id)
+        .then(result => res.redirect('/medikamente'))
+        .catch(err => console.log(err))
+})    
 
-// Creates a new DB entry from the frontend with POST
+
+app.get('/update-medikament/:id', (req, res) => {
+    Medicine.findById(req.params.id)
+         .then(data => {
+             res.render('update-medikament', { Medicine: data })   // Note that you DON'T need to include /:id in this line
+         })
+         .catch(err => console.log(err))
+ })
+
+ app.post('/update-medikament/:id', (req, res) => {
+    Medicine.findByIdAndUpdate(req.params.id, req.body)
+        .then(result => res.redirect(`/single-med/${req.params.id}`))    // Note: With res.redirect(), you need to use template literals!!!
+        .catch(err => console.log(err))
+})    
+
+
+
+
+
+
+// ################# THERAPY SECTION ################# //
+
+
+// Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
+app.get('/therapie', (req, res) => {
+    Therapy.find()
+        .then(data => {
+        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
+        res.render('therapie', { Therapys: data })
+        })
+        .catch(err => console.log(err))
+})
+
+ // Creates a new DB entry from the frontend with POST
 app.post('/neue-therapie', (req, res) => {
     const newTherapy = new Therapy(req.body)
 
