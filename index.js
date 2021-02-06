@@ -101,7 +101,7 @@ app.get('/', (req, res) => {
     // console.log(Medicine)
     Medicine.find()
     .then(result => {
-        res.render('medikamente', {Medicines: result})
+        res.render('medikamente', { title: "medikamente", Medicines: result})
     })
     .catch(err => console.log(err) )
 })
@@ -110,7 +110,7 @@ app.get('/neue-medikament', (req, res) => {
     // console.log("hallo")
     Medicine.aggregate([{ $sample: { size: 30 } }])
     .then(result => {
-        res.render('neue-medikament', {Medicines: result})
+        res.render('neue-medikament', { title: "medikamente", Medicines: result})
     })
 })
 
