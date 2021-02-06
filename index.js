@@ -199,11 +199,16 @@ app.get('/auth/login', (req, res) => {
 // PROFILE routes
 
 
-
 app.get('/profile', authCheck, (req, res) => {
+    var d = new Date();
+    var date = d.getDate();
+    var year = d.getFullYear();
+    var month = d.getMonth();
+    var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+    month = monthArr[month];
     // res.render('profile')
-    console.log("Profile:", req.user);
-    res.render('profile', {title: "profile", data: req.user})
+    console.log("Profile:", req);
+    res.render('profile', {date: `${date} ${month} ${year}` ,title: "profile", data: req.user})
     res.end()
 })
 
