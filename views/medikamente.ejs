@@ -16,7 +16,7 @@
         </div>
 
         <h3> <%= doc.product_name %> </h3>
-        <p class="mb-10"> <%= doc.drug_type %> <%= doc.dose %> </p>
+        <p class="mb-10"> <%= doc.drug_type %> <%= doc.dose %><%= (doc.drug_type == "Tablet") ? "mg" : "ml" %></p>
         <p>10 days stock</p>
   
     </article>
