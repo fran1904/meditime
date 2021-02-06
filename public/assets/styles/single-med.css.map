@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,WADO,CACP,EAAE,CAAC;EACC,KAAK,EAAE,gBAAgB;CAAG",
+    "sources": [
+        "single-med.sass"
+    ],
+    "names": [],
+    "file": "single-med.css"
+}

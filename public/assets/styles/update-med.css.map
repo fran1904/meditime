@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,WADO,CACP,EAAE,CAAC;EACC,KAAK,EAAE,KAAK;CAAG",
+    "sources": [
+        "update-med.sass"
+    ],
+    "names": [],
+    "file": "update-med.css"
+}

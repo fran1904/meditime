@@ -1,7 +1,7 @@
 <%- include('./partials/head') %>
-​
-<!-- <form action="/update-medikament/<%=Medicine.id%>" method="POST"> -->
-<form action="/update-medikament/601e6cd5fe11102cbd2600e7" method="POST">
+​<div id="update-med">
+<h3 class="test-heading">Medikament Aktualisieren</h3>
+<form action="/update-medikament/<%=Medicine.id%>" method="POST">
 ​
     <input type="text" name="product_name" placeholder="Produktname" value="<%=Medicine.product_name%>">
 ​
@@ -16,5 +16,5 @@
     
     <input type="submit" value="Medikament aktualisieren">
 </form>
-​
+​</div>
 <%- include('./partials/nav') %>

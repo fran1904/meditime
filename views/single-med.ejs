@@ -1,0 +1,34 @@
+<%- include('./partials/head') %>
+<div id="single-med f-container">
+
+
+        
+    <article class="med-wrap">
+     
+        <div class="icon-wrap <%= (Medicine.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
+
+            <img src="<%= (Medicine.drug_type == "Tablet") ? "assets/img/pill.svg" : "assets/img/syringe.svg" %>" alt="drug-icon">
+
+            <small class="<%= (Medicine.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= Medicine.inventory %></small>
+
+        </div>
+   
+
+        <h3><%= Medicine.product_name %> </h3>
+        <p class="mb-10"> <%= Medicine.drug_type %> <%= Medicine.dose %><%= (Medicine.drug_type == "Tablet") ? "mg" : "ml" %></p>
+        <p>10 days stock</p>
+  
+    </article>
+                  
+    
+    <a href="/update-medikament/<%= Medicine.id %>">Medikament aktualisieren</a>
+
+    <form method="POST" action="/delete/<%=Medicine.id%>?_method=DELETE">
+        <button type="submit">Löschen</button>
+    </form>
+
+
+</div>
+
+
+<%- include('./partials/nav') %>

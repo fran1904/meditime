@@ -9,13 +9,15 @@
         
     <article class="med-wrap">
      
+   
         <div class="icon-wrap <%= (doc.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
 
             <img src="<%= (doc.drug_type == "Tablet") ? "assets/img/pill.svg" : "assets/img/syringe.svg" %>" alt="drug-icon">
             <small class="<%= (doc.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= doc.inventory %></small>
         </div>
+   
 
-        <h3> <%= doc.product_name %> </h3>
+        <h3> <a href="/single-med/<%= doc.id %>"><%= doc.product_name %></a> </h3>
         <p class="mb-10"> <%= doc.drug_type %> <%= doc.dose %><%= (doc.drug_type == "Tablet") ? "mg" : "ml" %></p>
         <p>10 days stock</p>
   
