@@ -93,9 +93,9 @@ app.get('/neue-medikament', (req, res) => {
 // Creates a new DB entry from the frontend with POST
 app.post('/neue-medikament', (req, res) => {
     
-    const Medicines = new Medicine(req.body)
+    const newMedicines = new Medicine(req.body)
 
-    Medicines.save()
+    newMedicines.save()
         .then(result => {
             console.log(req.body)
             res.redirect('/medikamente')
