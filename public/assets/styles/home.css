@@ -26,7 +26,7 @@
   font-weight: 900;
 }
 
-#home p {
+#home p:first-of-type {
   margin: 1rem auto;
   color: #B1BDC6;
   font-family: "Roboto", sans-serif;
@@ -51,9 +51,15 @@
 }
 
 #home a:last-of-type {
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
   background: #5DA98B;
   font-weight: 700;
   color: #ffffff;
+}
+
+#home p:last-of-type {
+  margin: 0 auto 1rem;
+  color: #ffffff;
+  font-family: "Fira Sans", sans-serif;
 }
 /*# sourceMappingURL=home.css.map */
