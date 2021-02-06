@@ -102,14 +102,6 @@ app.get('/neue-medikament', (req, res) => {
     res.render('neue-medikament')
 })
 
-// Create a new DB entry from the frontend with POST
-app.post('/neue-medikament', (req, res) => {
-    const newMedicine = new Medicine(req.body)
-
-    newMedicine.save()
-
-
-
 // Creates a new DB entry from the frontend with POST
 app.post('/neue-medikament', (req, res) => {
     
