@@ -1,0 +1,20 @@
+<%- include('./partials/head') %>
+​
+<!-- <form action="/update-medikament/<%=Medicine.id%>" method="POST"> -->
+<form action="/update-medikament/601e6cd5fe11102cbd2600e7" method="POST">
+​
+    <input type="text" name="product_name" placeholder="Produktname" value="<%=Medicine.product_name%>">
+​
+    <input type="text" name="dose" placeholder="Dosierung in ml/mg" value="<%=Medicine.dose%>">
+​
+    <select name="drug_type" placeholder="Darreichungsformen" value="<%=Medicine.drug_type%>">
+        <option value="Tablet" selected>Tablette</option>
+        <option value="Injection">Injektion</option>
+    </select>
+​
+    <input type="text" name="inventory" placeholder="Inventory" value="<%=Medicine.inventory%>">
+    
+    <input type="submit" value="Medikament aktualisieren">
+</form>
+​
+<%- include('./partials/nav') %>

@@ -84,7 +84,9 @@ app.post('/neue-medikament', (req, res) => {
 
 
 
-// Creates a new DB entry from the frontend with POST
+
+
+ // Creates a new DB entry from the frontend with POST
 app.post('/neue-therapie', (req, res) => {
     const newTherapy = new Therapy(req.body)
 
