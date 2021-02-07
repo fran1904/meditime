@@ -199,7 +199,7 @@ app.post('/neue-therapie', (req, res) => {
 
     newTherapy.save()
         .then(result => {
-            res.redirect('/medikamente')
+            res.redirect('/alle-therapien')
         })
         .catch(err => console.log(err))
 })
@@ -212,3 +212,27 @@ app.get('/alle-therapien', (req, res) => {
         })
         .catch(err => console.log(err))
 })
+
+// single therapy page
+app.get('/single-therapie/:id', (req, res) => {
+    Therapy.findById(req.params.id)
+         .then(data => {
+             res.render('single-therapie', { title: "Meine Therapie", Therapy: data })    // Note that you DON'T need to include /:id in this line
+         })
+         .catch(err => console.log(err))
+ }) 
+
+ // delete a therapy
+ app.delete('/delete-therapy/:id', (req, res) => {
+    Therapy.findByIdAndDelete(req.params.id)
+        .then(result => res.redirect('/alle-therapien'))
+        .catch(err => console.log(err))
+})    
+
+app.get('/update-therapie/:id', (req, res) => {
+    Therapy.findById(req.params.id)
+         .then(data => {
+             res.render('update-therapie', { title: "Update Therapie", Therapy: data })   // Note that you DON'T need to include /:id in this line
+         })
+         .catch(err => console.log(err))
+ })
