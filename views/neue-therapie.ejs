@@ -2,17 +2,19 @@
 
 
 
-<form action="/neue-therapie" method="POST">
+<form action="/neue-therapie" method="POST" id="myform">
 
 <input type="date" name="start_date">
 <input type="date" name="end_date">
-<hr>
+
 
 <select name="medicine"> 
     <option value="" disabled selected>Medikament auswählen</option>
-<!-- Add EJS forEach here ( it's in your Paste clipboard. Search for ßmedicine_key ) -->
+    <% Medicines.forEach((doc) => { %>
+        <option value="<%= doc.product_name %>"><%= doc.product_name %></option>
+    <% }) %>
 </select>
-<hr>
+
 
 
 <p>Einnahme-Rhytmus</p>
@@ -58,7 +60,7 @@
 
       </select>
 
-      <span onclick="deleteTargetFieldset()"><i class="far fa-trash-alt"></i></span>
+      <i class="far fa-trash-alt delete "></i>
 </fieldset>
 
 <a href="#" onclick="duplicateFieldset()" style="display: block; height: 50px; font-size: 30px; border:1px solid lightgrey; text-align: center;">+</a>
@@ -80,37 +82,13 @@
 
 
 <script>
-
-    var ct = 1;
+    let myForm = document.getElementById('myform')
+    var count = 1;
 
     function duplicateFieldset() {
 
-        let myTemplate = `<input type="date" name="start_date">
-<input type="date" name="end_date">
-<hr>
-
-<select name="medicine"> 
-    <option value="" disabled selected>Medikament auswählen</option>
-<!-- Add EJS forEach here ( it's in your Paste clipboard. Search for ßmedicine_key ) -->
-</select>
-<hr>
-
-
-<p>Einnahme-Rhytmus</p>
-<select name="rhythm"> 
-  <option value="daily" selected>Täglich</option>
-  <option value="every-2-days">Alle 2 Tage</option>
-  <option value="every-3-days">Alle 3 Tage</option>
-  <option value="every-4-days">Alle 4 Tage</option>
-  <option value="every-5-days">Alle 5 Tage</option>
-  <option value="every-6-days">Alle 6 Tage</option>
-  <option value="weekly">Wöchentlich</option>
-  <option value="every-2-weeks">Alle 2 Wochen</option>
-  <option value="every-3-weeks">Alle 3 Wochen</option>
-  <option value="monthly">Monatlich</option>
-</select>
-
-<fieldset>
+        let myTemplate = `
+<fieldset style="border-width: 0;">
     <input type="time" name="take_time">
 
     <select name="portions"> 
@@ -139,18 +117,27 @@
 
       </select>
 
-      <span onclick="deleteTargetFieldset()"><i class="far fa-trash-alt"></i></span>`
+      <i class="far fa-trash-alt delete"></i>
+      </fieldset>`
 
-        ct++;
-  
+        count++;
         let newFieldset = document.createElement('fieldset')
-
-        newFieldset.id = ct
-
+        newFieldset.id = count
         newFieldset.innerHTML = myTemplate
-
         document.getElementById('firstFieldset').appendChild(newFieldset)
     }
+
+
+
+    
+    // Delete fieldset
+    myForm.addEventListener('click', e => {
+       
+        if(e.target.classList.contains('delete')){
+            e.target.parentElement.remove()
+        }
+    })
+
 </script>
 
 

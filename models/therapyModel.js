@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const therapySchema = new Schema({
-
        start_date: {
                type: Date,
                required: true
@@ -18,19 +17,14 @@ const therapySchema = new Schema({
        rhythm: {
                type: String,
                required: true
-       },        
-       take_time: {
-               type: Date,
-               required: true
-       },        
-       portions: {
-               type: Number,
-               required: true
-       },        
-       meal: {
-               type: String,
-               required: true
-       }        
+       },  
+       details: [
+           {
+                take_time: String,
+                portions: String,
+                meal: String
+           },
+       ]
 }, { timestamps: true })
 
 const Therapy = mongoose.model('Therapy', therapySchema)

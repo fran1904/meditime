@@ -183,17 +183,23 @@ app.get('/therapie', (req, res) => {
 })
 
 app.get('/neue-therapie', (req, res) => {
-    res.render('neue-therapie', {title: "Neue Therapie"})
+
+    Medicine.find()
+    .then(data => {
+
+    res.render('neue-therapie', {data: req.user, title: "Neue Therapie", Medicines: data })
+    })
+.catch(err => console.log(err))
 })
 
 
  // Creates a new DB entry from the frontend with POST
-// app.post('/neue-therapie', (req, res) => {
-//     const newTherapy = new Therapy(req.body)
+app.post('/neue-therapie', (req, res) => {
+    const newTherapy = new Therapy(req.body)
 
-//     newTherapy.save()
-//         .then(result => {
-//             res.redirect('therapie')
-//         })
-//         .catch(err => console.log(err))
-// })
+    newTherapy.save()
+        .then(result => {
+            res.redirect('/medikamente')
+        })
+        .catch(err => console.log(err))
+})
