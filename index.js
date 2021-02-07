@@ -203,3 +203,12 @@ app.post('/neue-therapie', (req, res) => {
         })
         .catch(err => console.log(err))
 })
+
+// index-of-docs
+app.get('/alle-therapien', (req, res) => {
+    Therapy.find()
+        .then(data => {
+        res.render('alle-therapien', { title: "Alle Therapien", Therapies: data })
+        })
+        .catch(err => console.log(err))
+})

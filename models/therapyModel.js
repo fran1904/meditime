@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const therapySchema = new Schema({
+       therapy_name: {
+                type: String,
+                required: true
+       },
        start_date: {
                type: Date,
                required: true

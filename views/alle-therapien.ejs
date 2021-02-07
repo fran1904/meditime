@@ -1,0 +1,24 @@
+<%- include('./partials/head') %>
+
+
+    <div>
+    
+        <% Therapies.forEach(doc => { %>
+            
+        <article>
+         
+            <a href="single-therapie/<%= doc.id %>"><h2> <%= doc.therapy_name %></h2></a>
+            <p>Anfangsdatum: <%= doc.start_date %></p>
+
+        </article>
+                        
+            <%})%>
+
+    </div>
+    
+    <a href="/neue-therapie">+ Therapie anlegen</a>
+    
+
+
+<%- include('./partials/nav') %>
+<%- include('./partials/footer') %>
