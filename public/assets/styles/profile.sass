@@ -1,15 +1,18 @@
+@import 'variables';
 
 #profile
-    min-height: 100vh
+    min-height: 90vh
     background: #F6F7FB
     text-align: center
+    font-family: $fira
+    color: $head-color
+
     div
-       
         display: flex
         flex-direction: column
         align-items: center
         justify-content: space-around
-        img
+        #profile-pic
             width: 40%
             border-radius: 50%
             margin: 5vh auto
@@ -17,6 +20,17 @@
             margin-top: 10vh
         h2
             margin-bottom: 2vh
+        p
+            color: $para-color
         a
-            margin-top: 20vh
+            margin-top: 16vh
+            margin-bottom: 1rem
             cursor: pointer
+            padding: .5rem 1rem
+            width: 80%
+            border-radius: 20px
+            font-size: 1.2rem
+            background: #5DA98B
+            color: $white
+            img
+                margin-left: 1rem
