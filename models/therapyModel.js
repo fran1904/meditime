@@ -23,7 +23,7 @@ const therapySchema = new Schema({
                type: Date,
                required: true
        },        
-       portion: {
+       portions: {
                type: Number,
                required: true
        },        

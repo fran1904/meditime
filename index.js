@@ -75,25 +75,6 @@ app.get('/medikamente', (req, res) => {
         .catch(err => console.log(err))
 })
 
-// Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
-app.get('/therapie', (req, res) => {
-    Therapy.find()
-        .then(data => {
-        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('therapie', { title: "therapie", Therapys: data })
-        })
-        .catch(err => console.log(err))
-})
-
-
-
-
-
-
-
-
-// CREATE
-
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
 
 app.get('/neue-medikament', (req, res) => {
@@ -131,7 +112,7 @@ app.delete('/delete/:id', (req, res) => {
 app.get('/update-medikament/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('update-medikament', { Medicine: data })   // Note that you DON'T need to include /:id in this line
+             res.render('update-medikament', { title: "My Medikament", Medicine: data })   // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  })
@@ -142,34 +123,6 @@ app.get('/update-medikament/:id', (req, res) => {
         .catch(err => console.log(err))
 })    
 
-
-
-
-
-
-// ################# THERAPY SECTION ################# //
-
-
-// Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
-app.get('/therapie', (req, res) => {
-    Therapy.find()
-        .then(data => {
-        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('therapie', { Therapys: data })
-        })
-        .catch(err => console.log(err))
-})
-
- // Creates a new DB entry from the frontend with POST
-app.post('/neue-therapie', (req, res) => {
-    const newTherapy = new Therapy(req.body)
-
-    newTherapy.save()
-        .then(result => {
-            res.redirect('therapie')
-        })
-        .catch(err => console.log(err))
-})
 
 
 
@@ -210,3 +163,37 @@ app.get('/profile', authCheck, (req, res) => {
 // app.use('/profile', profileRoutes)
 
 
+
+
+
+
+
+
+// ################# THERAPY SECTION ################# //
+
+
+// Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
+app.get('/therapie', (req, res) => {
+    Therapy.find()
+        .then(data => {
+        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
+        res.render('therapie', { Therapys: data })
+        })
+        .catch(err => console.log(err))
+})
+
+app.get('/neue-therapie', (req, res) => {
+    res.render('neue-therapie', {title: "Neue Therapie"})
+})
+
+
+ // Creates a new DB entry from the frontend with POST
+// app.post('/neue-therapie', (req, res) => {
+//     const newTherapy = new Therapy(req.body)
+
+//     newTherapy.save()
+//         .then(result => {
+//             res.redirect('therapie')
+//         })
+//         .catch(err => console.log(err))
+// })

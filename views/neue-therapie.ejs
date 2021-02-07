@@ -1,7 +1,160 @@
 <%- include('./partials/head') %>
+
+
+
+<form action="/neue-therapie" method="POST">
+
+<input type="date" name="start_date">
+<input type="date" name="end_date">
+<hr>
+
+<select name="medicine"> 
+    <option value="" disabled selected>Medikament auswählen</option>
+<!-- Add EJS forEach here ( it's in your Paste clipboard. Search for ßmedicine_key ) -->
+</select>
+<hr>
+
+
+<p>Einnahme-Rhytmus</p>
+<select name="rhythm"> 
+  <option value="daily" selected>Täglich</option>
+  <option value="every-2-days">Alle 2 Tage</option>
+  <option value="every-3-days">Alle 3 Tage</option>
+  <option value="every-4-days">Alle 4 Tage</option>
+  <option value="every-5-days">Alle 5 Tage</option>
+  <option value="every-6-days">Alle 6 Tage</option>
+  <option value="weekly">Wöchentlich</option>
+  <option value="every-2-weeks">Alle 2 Wochen</option>
+  <option value="every-3-weeks">Alle 3 Wochen</option>
+  <option value="monthly">Monatlich</option>
+</select>
+
+<fieldset id="firstFieldset">
+    <input type="time" name="take_time">
+
+    <select name="portions"> 
+        <option value="" disabled selected># Stück</option>
+        <option value="1">1 Stück</option>
+        <option value="2">2 Stück</option>
+        <option value="3">3 Stück</option>
+        <option value="4">4 Stück</option>
+        <option value="5">5 Stück</option>
+      </select>
+
+      <select name="meal"> 
+        <option value="" disabled selected>Mahlzeit</option>
+
+        <option value="vor dem Frühstuck">vor dem Frühstuck</option>
+        <option value="vor dem Frühstuck">vor dem Frühstuck</option>
+        <option value="nach dem Frühstuck">nach dem Frühstuck</option>
+
+        <option value="vor dem Mittagessen">vor dem Mittagessen</option>
+        <option value="nach dem Mittagessen">nach dem Mittagessen</option>
+        <option value="vor dem Mittagessen">vor dem Mittagessen</option>
+
+        <option value="vor dem Abendessen">vor dem Abendessen</option>
+        <option value="nach dem Abendessen">nach dem Abendessen</option>
+        <option value="vor dem Abendessen">vor dem Abendessen</option>
+
+      </select>
+
+      <span onclick="deleteTargetFieldset()"><i class="far fa-trash-alt"></i></span>
+</fieldset>
+
+<a href="#" onclick="duplicateFieldset()" style="display: block; height: 50px; font-size: 30px; border:1px solid lightgrey; text-align: center;">+</a>
+
+
+
+
+
+
+
+
+
+
+
+<input type="submit" value="Übernehmen">
+</form>
+
+
+
+
+<script>
+
+    var ct = 1;
+
+    function duplicateFieldset() {
+
+        let myTemplate = `<input type="date" name="start_date">
+<input type="date" name="end_date">
+<hr>
+
+<select name="medicine"> 
+    <option value="" disabled selected>Medikament auswählen</option>
+<!-- Add EJS forEach here ( it's in your Paste clipboard. Search for ßmedicine_key ) -->
+</select>
+<hr>
+
+
+<p>Einnahme-Rhytmus</p>
+<select name="rhythm"> 
+  <option value="daily" selected>Täglich</option>
+  <option value="every-2-days">Alle 2 Tage</option>
+  <option value="every-3-days">Alle 3 Tage</option>
+  <option value="every-4-days">Alle 4 Tage</option>
+  <option value="every-5-days">Alle 5 Tage</option>
+  <option value="every-6-days">Alle 6 Tage</option>
+  <option value="weekly">Wöchentlich</option>
+  <option value="every-2-weeks">Alle 2 Wochen</option>
+  <option value="every-3-weeks">Alle 3 Wochen</option>
+  <option value="monthly">Monatlich</option>
+</select>
+
+<fieldset>
+    <input type="time" name="take_time">
+
+    <select name="portions"> 
+        <option value="" disabled selected># Stück</option>
+        <option value="1">1 Stück</option>
+        <option value="2">2 Stück</option>
+        <option value="3">3 Stück</option>
+        <option value="4">4 Stück</option>
+        <option value="5">5 Stück</option>
+      </select>
+
+      <select name="meal"> 
+        <option value="" disabled selected>Mahlzeit</option>
+
+        <option value="vor dem Frühstuck">vor dem Frühstuck</option>
+        <option value="vor dem Frühstuck">vor dem Frühstuck</option>
+        <option value="nach dem Frühstuck">nach dem Frühstuck</option>
+
+        <option value="vor dem Mittagessen">vor dem Mittagessen</option>
+        <option value="nach dem Mittagessen">nach dem Mittagessen</option>
+        <option value="vor dem Mittagessen">vor dem Mittagessen</option>
+
+        <option value="vor dem Abendessen">vor dem Abendessen</option>
+        <option value="nach dem Abendessen">nach dem Abendessen</option>
+        <option value="vor dem Abendessen">vor dem Abendessen</option>
+
+      </select>
+
+      <span onclick="deleteTargetFieldset()"><i class="far fa-trash-alt"></i></span>`
+
+        ct++;
+  
+        let newFieldset = document.createElement('fieldset')
+
+        newFieldset.id = ct
+
+        newFieldset.innerHTML = myTemplate
+
+        document.getElementById('firstFieldset').appendChild(newFieldset)
+    }
+</script>
+
+
+
+
 <%- include('./partials/nav') %>
-
-<h1>This is the Create or 'New therapie' page with form </h1>
-
-
 <%- include('./partials/footer') %>
