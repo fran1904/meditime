@@ -1,6 +1,8 @@
 <%- include('./partials/head') %>
 <%- include('./partials/newhead') %>
 
+<a class="Back" href="/medikamente"> Medikament anlegen</a>
+
     <div id="Formular">
    
       <form action="/neue-medikament" method="POST">
@@ -9,15 +11,18 @@
         ​
             <input class="dose" type="text" name="dose" placeholder="Dosierung in ml/mg">
         ​
-            <select  name="drug_type" placeholder="Darreichungsformen">
-                <option value="Tablet" selected>Tablette</option>
+            <select class="select" name="drug_type" placeholder="Darreichungsformen">
+                <option class="Tablette" value="Tablet" selected>Tablette</option>
                 <option value="Injection">Injektion</option>
             </select>
         ​
             <input class="inventory" type="text" name="inventory" placeholder="Inventory">
-            
-            <input class="submit" type="submit" value="Medikament anlegen">
+
+            <input class="Weiter" type="submit" value="Weiter">
+    
         </form>
+
+        
     </div>
    
 </form>
