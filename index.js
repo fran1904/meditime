@@ -204,7 +204,7 @@ app.get('/therapie', (req, res) => {
     Therapy.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('therapie', { Therapys: data })
+        res.render('therapie', { Therapy: data })
         })
         .catch(err => console.log(err))
 })
@@ -235,7 +235,10 @@ app.post('/neue-therapie', (req, res) => {
 app.get('/alle-therapien', (req, res) => {
     Therapy.find()
         .then(data => {
-        res.render('alle-therapien', { title: "Alle Therapien", Therapies: data })
+            Medicine.find()
+            .then(medData => {
+                res.render('alle-therapien', { title: "Alle Therapien", Therapies: data, Medicines: medData })
+            })
         })
         .catch(err => console.log(err))
 })

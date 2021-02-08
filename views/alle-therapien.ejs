@@ -1,21 +1,24 @@
 <%- include('./partials/head') %>
-
-
     <div>
-    
         <% Therapies.forEach(doc => { %>
-            
         <article>
-         
             <a href="single-therapie/<%= doc.id %>"><h2> <%= doc.therapy_name %></h2></a>
-            <p>Anfangsdatum: <%= doc.start_date %></p>
 
-        </article>
-                        
-            <%})%>
+            <!-- 
+                This app has 2 collections in the database: 1. therapies and 2. medicines
 
+                For each Therapy looped through in this view, I want to:
+
+                    - In the therapies collection, 'look up' the value of a field in the document called medicines: "<value>"
+                    - Compare this "<value>" with a field product_name: "<value>" in the therapies collection document
+                    - if the values match exactly, I want to
+                    - (a) access all the values in the medicines collection document and display them in the view
+                    - (b) on click of a button in this view, run a function that decrements a property inventory: in the medicines database document 
+             -->
+
+        </article>             
+        <%})%>
     </div>
-    
     <a href="/neue-therapie">+ Therapie anlegen</a>
     
 
