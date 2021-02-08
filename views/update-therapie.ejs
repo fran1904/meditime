@@ -2,13 +2,18 @@
 
 
 
-<form action="/update-this-therapie" method="POST" id="myform">
+<form action="/update-therapie" method="POST" id="myform">
     
 <input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename" value="<%=Therapy.therapy_name%>">
 <input type="date" name="start_date" value="<%=Therapy.start_date%>">
 <input type="date" name="end_date" value="<%=Therapy.end_date%>">
 
-<!-- Add Medicines here -->
+<select name="medicine"> 
+    <option value="" disabled selected>Medikament auswählen</option>
+    <% Medicines.forEach((doc) => { %>
+        <option value="<%= doc.product_name %>"><%= doc.product_name %></option>
+    <% }) %>
+</select>
 
 <p>Einnahme-Rhytmus</p>
 <select name="rhythm"> 
