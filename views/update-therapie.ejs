@@ -2,12 +2,11 @@
 
 
 
-<form action="/neue-therapie" method="POST" id="myform">
+<form action="/update-therapie" method="POST" id="myform">
     
-<input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename">
-<input type="date" name="start_date">
-<input type="date" name="end_date">
-
+<input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename" value="<%=Therapy.therapy_name%>">
+<input type="date" name="start_date" value="<%=Therapy.start_date%>">
+<input type="date" name="end_date" value="<%=Therapy.end_date%>">
 
 <select name="medicine"> 
     <option value="" disabled selected>Medikament auswählen</option>
@@ -15,8 +14,6 @@
         <option value="<%= doc.product_name %>"><%= doc.product_name %></option>
     <% }) %>
 </select>
-
-
 
 <p>Einnahme-Rhytmus</p>
 <select name="rhythm"> 
@@ -33,7 +30,7 @@
 </select>
 
 <fieldset id="firstFieldset">
-    <input type="time" name="take_time">
+    <input type="time" name="take_time" value="<%=Therapy.take_time%>">
 
     <select name="portions"> 
         <option value="" disabled selected># Stück</option>
@@ -66,21 +63,8 @@
 
 <a href="#" onclick="duplicateFieldset()" style="display: block; height: 50px; font-size: 30px; border:1px solid lightgrey; text-align: center;">+</a>
 
-
-
-
-
-
-
-
-
-
-
 <input type="submit" value="Übernehmen">
 </form>
-
-
-
 
 <script>
     let myForm = document.getElementById('myform')
