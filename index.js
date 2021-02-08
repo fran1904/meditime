@@ -231,10 +231,10 @@ app.get('/single-therapie/:id', (req, res) => {
 
 app.get('/update-therapie/:id', (req, res) => {
     Therapy.findById(req.params.id)
-         .then(data => {
+         .then(data2 => {
             Medicine.find()
             .then(data => {
-                res.render('update-therapie', { title: "Update Therapie", Therapy: data, Medicines: data })  
+                res.render('update-therapie', { title: "Update Therapie", Therapy: data2, Medicines: data })  
             })
          })
          .catch(err => console.log(err))
