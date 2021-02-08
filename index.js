@@ -232,7 +232,13 @@ app.get('/single-therapie/:id', (req, res) => {
 app.get('/update-therapie/:id', (req, res) => {
     Therapy.findById(req.params.id)
          .then(data => {
-             res.render('update-therapie', { title: "Update Therapie", Therapy: data })   // Note that you DON'T need to include /:id in this line
+             res.render('update-therapie', { title: "Update Therapie", Therapy: data, Medicines: data })   // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  })
+
+ app.post('/update-this-therapie/:id', (req, res) => {
+    Therapy.findByIdAndUpdate(req.params.id, req.body)
+        .then(result => res.redirect(`/single-therapie/${req.params.id}`))    // Note: With res.redirect(), you need to use template literals!!!
+        .catch(err => console.log(err))
+})    
