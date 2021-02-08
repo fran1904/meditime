@@ -27,6 +27,12 @@ app.use(methodOverride('_method'))
 app.use(express.static('./public'))
 app.set('view engine', 'ejs');   
 
+var d = new Date();
+    var date = d.getDate();
+    var year = d.getFullYear();
+    var month = d.getMonth();
+    var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+    month = monthArr[month];
 
 //Cookie-Session - setzt einen Cookie! 
 
@@ -61,24 +67,45 @@ app.get('/', (req, res) => {
 })
 
 app.get('/dashboard', authCheck,(req, res) => {
-    res.render('dashboard', {title: "dashboard"})
+    res.render('dashboard', {date: `${date} ${month} ${year}` , data: req.user, title: "dashboard"})
 })
 
 
 // Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
-app.get('/medikamente', (req, res) => {
+app.get('/medikamente', authCheck, (req, res) => {
     Medicine.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('medikamente', { title: "medikamente", Medicines: data })
+        res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", Medicines: data })
         })
         .catch(err => console.log(err))
 })
 
+
+// Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
+app.get('/therapie', (req, res) => {
+    Therapy.find()
+        .then(data => {
+        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
+        res.render('therapie', {date: `${date} ${month} ${year}` , data: req.user ,title: "therapie", Therapys: data })
+        })
+        .catch(err => console.log(err))
+})
+
+
+
+
+
+
+
+
+// CREATE
+
+
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
 
 app.get('/neue-medikament', (req, res) => {
-    res.render('neue-medikament', {title: "Neue Medikament"})
+    res.render('neue-medikament', {data: req.user, title: "Neues Medikament"})
 })
 
 // Creates a new DB entry from the frontend with POST
@@ -152,11 +179,11 @@ app.get('/auth/login', (req, res) => {
 // PROFILE routes
 
 
-
 app.get('/profile', authCheck, (req, res) => {
+    
     // res.render('profile')
-    console.log("Profile:", req.user);
-    res.render('profile', {title: "profile", data: req.user})
+    console.log("Profile:", req);
+    res.render('profile', {date: `${date} ${month} ${year}` ,title: "profile", data: req.user})
     res.end()
 })
 

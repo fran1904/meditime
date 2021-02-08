@@ -2,10 +2,19 @@
 
 
 <%# JSON.stringify(data) %>
-<h1>Hi from the profile page</h1>
-<p>Name</p>
-<p>Email</p>
+<section id="profile">
+    <div>
+    <h1>MY PROFILE</h1>
+    <img src="<%=data.url_picture%>" alt="" id="profile-pic">
+    <p>Name</p>
+    <h2><%=data.userName%></h2>
+    <p>Email</p>
+    <h2><%=data.email%></h2>
+    
+    <a href="/auth/logout">Logout <img src="../assets/img/google.png" alt=""></a>
+    <p>Date: <%=date%></p>
+    </div>
+</section>
 
-<a href="/auth/logout">Logout</a>
 <%- include('./partials/nav') %>
 <%- include('./partials/footer') %>
