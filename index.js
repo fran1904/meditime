@@ -27,12 +27,6 @@ app.use(methodOverride('_method'))
 app.use(express.static('./public'))
 app.set('view engine', 'ejs');   
 
-var d = new Date();
-    var date = d.getDate();
-    var year = d.getFullYear();
-    var month = d.getMonth();
-    var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
-    month = monthArr[month];
 
 //Cookie-Session - setzt einen Cookie! 
 
@@ -67,45 +61,24 @@ app.get('/', (req, res) => {
 })
 
 app.get('/dashboard', authCheck,(req, res) => {
-    res.render('dashboard', {date: `${date} ${month} ${year}` , data: req.user, title: "dashboard"})
+    res.render('dashboard', {title: "dashboard"})
 })
 
 
 // Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
-app.get('/medikamente', authCheck, (req, res) => {
+app.get('/medikamente', (req, res) => {
     Medicine.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", Medicines: data })
+        res.render('medikamente', { title: "medikamente", Medicines: data })
         })
         .catch(err => console.log(err))
 })
-
-
-// Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
-app.get('/therapie', (req, res) => {
-    Therapy.find()
-        .then(data => {
-        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('therapie', {date: `${date} ${month} ${year}` , data: req.user ,title: "therapie", Therapys: data })
-        })
-        .catch(err => console.log(err))
-})
-
-
-
-
-
-
-
-
-// CREATE
-
 
 // Load the 'create-single-doc' page. The view contains a form with which the user can create a new single document in the database.
 
 app.get('/neue-medikament', (req, res) => {
-    res.render('neue-medikament', {data: req.user, title: "Neues Medikament"})
+    res.render('neue-medikament', {title: "Neue Medikament"})
 })
 
 // Creates a new DB entry from the frontend with POST
@@ -179,11 +152,11 @@ app.get('/auth/login', (req, res) => {
 // PROFILE routes
 
 
+
 app.get('/profile', authCheck, (req, res) => {
-    
     // res.render('profile')
-    console.log("Profile:", req);
-    res.render('profile', {date: `${date} ${month} ${year}` ,title: "profile", data: req.user})
+    console.log("Profile:", req.user);
+    res.render('profile', {title: "profile", data: req.user})
     res.end()
 })
 
@@ -259,13 +232,16 @@ app.get('/single-therapie/:id', (req, res) => {
 app.get('/update-therapie/:id', (req, res) => {
     Therapy.findById(req.params.id)
          .then(data => {
-             res.render('update-therapie', { title: "Update Therapie", Therapy: data })   // Note that you DON'T need to include /:id in this line
+            Medicine.find()
+            .then(data => {
+                res.render('update-therapie', { title: "Update Therapie", Therapy: data, Medicines: data })  
+            })
          })
          .catch(err => console.log(err))
  })
 
  app.post('/update-therapie/:id', (req, res) => {
     Therapy.findByIdAndUpdate(req.params.id, req.body)
-        .then(result => res.redirect(`/single-therapie/${req.params.id}`))    // Note: With res.redirect(), you need to use template literals!!!
+        .then(result => res.redirect(`/single-therapie/${req.params.id}`))    
         .catch(err => console.log(err))
 })    
