@@ -22,13 +22,15 @@ const therapySchema = new Schema({
                type: String,
                required: true
        },  
-       details: [
-           {
-                take_time: String,
-                portions: String,
-                meal: String
-           },
-       ]
+       take_time: {
+            type: Array
+       },
+        portions: {
+            type: Array
+        },
+        meal: {
+            type: Array
+        }    
 }, { timestamps: true })
 
 const Therapy = mongoose.model('Therapy', therapySchema)
