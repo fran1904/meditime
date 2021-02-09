@@ -2,7 +2,33 @@
 
 <%- include('./partials/profilehead') %>
 
-<h1>Hi from the therapie page. Calendar and timeline are displayed here...</h1>
+<%- include('./partials/head') %>
+
+    <div>
+        <%Therapies.forEach(doc => { %>
+        <%Medicines.forEach(m => { %>
+
+            <% if(doc.medicine == m.product_name) { %>
+
+                <article>
+                   
+                        <h2><a href="/single-therapie/<%= doc.id %>"><%= doc.therapy_name %></a></h2>
+                        <p><a href="/single-med/<%= m.id %>"><%= m.product_name %></a></p>
+                        <p><%= doc.rhythm %> <%= doc.meal[0] %></p>
+                        <p><%= m.drug_type %> <%= m.dose %><%= (m.drug_type == "Tablet") ? "mg" : "ml" %></p>
+                        <p><%= m.inventory %></p>
+                
+                    <form method="POST" action="/medicine-update/<%=m._id%>/<%=m.inventory%>?_method=UPDATE">
+                        <button type="submit"><i class="fas fa-check"></i></button>
+                    </form>
+
+                </article>
+            <% } %>
+        <%})%>          
+        <%})%>
+    </div>
+    <a href="/neue-therapie">+ Therapie anlegen</a>
+    
 
 <%- include('./partials/nav') %>
 <%- include('./partials/footer') %>
