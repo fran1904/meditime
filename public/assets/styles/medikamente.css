@@ -43,9 +43,16 @@
 #medikamente .icon-wrap-purple {
   background: #F0E5FA;
 }
+#medikamente .icon-wrap-purple img {
+  height: 15vh;
+}
 
 #medikamente .icon-wrap-yellow {
   background: #FDEEE0;
+}
+
+#medikamente .icon-wrap-yellow img{
+  height: 10vh;
 }
 
 #medikamente .dark-purple {

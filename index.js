@@ -124,7 +124,7 @@ app.post('/neue-medikament', (req, res) => {
 app.get('/single-med/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('single-med', { title: "My Medikament", Medicine: data })    // Note that you DON'T need to include /:id in this line
+             res.render('single-med', { title: "My Medikament", Medicine: data ,data: req.user})    // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  }) 
@@ -139,7 +139,7 @@ app.delete('/delete/:id', (req, res) => {
 app.get('/update-medikament/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('update-medikament', { title: "My Medikament", Medicine: data })   // Note that you DON'T need to include /:id in this line
+             res.render('update-medikament', { title: "My Medikament", Medicine: data ,data: req.user})   // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  })
@@ -204,7 +204,7 @@ app.get('/therapie', (req, res) => {
     Therapy.find()
         .then(data => {
         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('therapie', { Therapys: data })
+        res.render('therapie', { Therapys: data  })
         })
         .catch(err => console.log(err))
 })
