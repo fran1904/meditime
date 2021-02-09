@@ -115,7 +115,7 @@ app.post('/neue-medikament', (req, res) => {
 app.get('/single-med/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('single-med', { title: "My Medikament", Medicine: data })    // Note that you DON'T need to include /:id in this line
+             res.render('single-med', { title: "My Medikament", Medicine: data ,data: req.user})    // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  }) 
@@ -130,7 +130,7 @@ app.delete('/delete/:id', (req, res) => {
 app.get('/update-medikament/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('update-medikament', { title: "My Medikament", Medicine: data })   // Note that you DON'T need to include /:id in this line
+             res.render('update-medikament', { title: "My Medikament", Medicine: data ,data: req.user})   // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  })
@@ -201,6 +201,7 @@ app.get('/profile', authCheck, (req, res) => {
 
 
 app.get('/therapie', (req, res) => {
+
     Therapy.find((err, data) => {
         if(err){
             res.json(err)
@@ -214,6 +215,7 @@ app.get('/therapie', (req, res) => {
             })
         } 
     })
+
 })
 
 
