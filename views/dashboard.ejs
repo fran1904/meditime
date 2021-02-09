@@ -1,6 +1,11 @@
 <%- include('./partials/head') %>
 <%- include('./partials/profilehead') %>
 
+
+<section id="dashboard">
+    <%- include('./partials/calendar') %>
+</section>
+
 <div>
     <%Therapies.forEach(doc => { %>
     <%Medicines.forEach(m => { %>
@@ -24,6 +29,7 @@
     <%})%>          
     <%})%>
 </div>
+
 
 <%- include('./partials/nav') %>
 <%- include('./partials/footer') %>

@@ -1,8 +1,11 @@
 <%- include('./partials/head') %>
-
 <%- include('./partials/profilehead') %>
 
-<%- include('./partials/head') %>
+
+<section>
+<%- include('./partials/calendar') %>
+</section>
+
 
     <div>
         <%Therapies.forEach(doc => { %>
@@ -29,6 +32,7 @@
     </div>
     <a href="/neue-therapie">+ Therapie anlegen</a>
     
+
 
 <%- include('./partials/nav') %>
 <%- include('./partials/footer') %>
