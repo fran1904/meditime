@@ -85,14 +85,29 @@ app.get('/dashboard', (req, res) => {
 
 
 // Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
+// app.get('/medikamente', authCheck, (req, res) => {
+//     Medicine.find()
+//         .then(data => {
+//         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
+//         res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", Medicines: data })
+//         })
+//         .catch(err => console.log(err))
+// })
+
+
 app.get('/medikamente', authCheck, (req, res) => {
     Medicine.find()
         .then(data => {
-        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", Medicines: data })
+          Therapy.find()
+          .then(therapydata => {
+              res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", 
+        Medicines: data, Therapies: therapydata})
         })
-        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
 })
+
+
 
 // ################# MEDICINE ROUTES #################
 app.get('/neue-medikament', (req, res) => {

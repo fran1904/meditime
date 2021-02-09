@@ -4,27 +4,36 @@
 
 <div class="grid-container f-container">
 
-    <% Medicines.forEach(doc => { %>
+
         
-    <article class="med-wrap">
-     
-   
-        <div class="icon-wrap <%= (doc.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
+    <% Medicines.forEach(med => { %>
+    <% Therapies.forEach(ther => { %>
 
-            <img src="<%= (doc.drug_type == "Tablet") ? "assets/img/pill.svg" : "assets/img/syringe.svg" %>" alt="drug-icon">
-            <small class="<%= (doc.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= doc.inventory %></small>
-        </div>
-   
 
-        <h3> <a href="/single-med/<%= doc.id %>"><%= doc.product_name %></a> </h3>
-        <p class="mb-10"> <%= doc.drug_type %> <%= doc.dose %><%= (doc.drug_type == "Tablet") ? "mg" : "ml" %></p>
-        <p>10 days stock</p>
+        <% if(ther.medicine == med.product_name) { %>
+        <article class="med-wrap">
+            <div class="icon-wrap <%= (med.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
+                <img src="<%= (med.drug_type == "Tablet") ? "assets/img/pill.svg" : "assets/img/syringe.svg" %>" alt="drug-icon">
+                <small class="<%= (med.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= med.inventory %></small>
+            </div>
+        
+            <h3> <a href="/single-med/<%= med.id %>"><%= med.product_name %></a> </h3>
+            <p class="mb-10"> <%= med.drug_type %> <%= med.dose %><%= (med.drug_type == "Tablet") ? "mg" : "ml" %></p>
+            <% let dosesRemaining = med.inventory / (ther.portions * ther.take_time.length) %>
+            
+            <% if (dosesRemaining <= 10){ %>
+                <p style="color:#7acdaa;"><%= dosesRemaining.toFixed(0) %> days stock</p>
+            <% } else { %>
+                <p style="color:red;"><%= dosesRemaining.toFixed(0) %> days stock</p>
+            <% } %>
+
+            
+
+        </article>
+        <% } %>       
+            <%})%>
+            <%})%>
   
-    </article>
-                    
-        <%})%>
-
-
 
 
         
