@@ -148,7 +148,17 @@ app.get('/update-medikament/:id', (req, res) => {
     Medicine.findByIdAndUpdate(req.params.id, req.body)
         .then(result => res.redirect(`/single-med/${req.params.id}`))    // Note: With res.redirect(), you need to use template literals!!!
         .catch(err => console.log(err))
-})    
+}) 
+
+// Decrement inventory and update field in db
+app.post('/medicine-update/:id/:inventory', (req, res) => {
+    Medicine.findByIdAndUpdate(req.params.id, {inventory: req.params.inventory-=1}, {new: true}, (err, data) => {
+        if(err){
+            res.json(err)
+        }
+        res.redirect('/alle-therapien')
+    })
+ }) 
 
 
 
@@ -233,14 +243,40 @@ app.post('/neue-therapie', (req, res) => {
 
 // index-of-docs
 app.get('/alle-therapien', (req, res) => {
-    Therapy.find()
-        .then(data => {
-            Medicine.find()
-            .then(medData => {
-                res.render('alle-therapien', { title: "Alle Therapien", Therapies: data, Medicines: medData })
+    // Therapy.find()
+    //     .then(data => {
+    //         Medicine.find()
+    //         .then(medData => {
+    //             res.render('alle-therapien', { title: "Alle Therapien", Therapies: data, Medicines: medData })
+    //         })
+    //     })
+    //     .catch(err => console.log(err))
+    Therapy.find((err, data) => {
+        if(err){
+            res.json(err)
+        }else{
+            Medicine.find((error, response) => {
+                if(err) {
+                    res.json(err)
+                }else{
+                    // const filtered = []
+                    // data.forEach(d => {
+                    //     response.forEach(r => {
+                    //         if(d.medicine == r.product_name){
+                    //             let obj = {};
+                                
+                    //             obj = {...r, ...d}
+                    //             filtered.push(obj)
+                    //         }
+                    //     })
+                    // })
+                    res.render('alle-therapien', { title: "Alle Therapien", Therapies: data, Medicines: response })
+                    //res.json(filtered)
+                }
             })
-        })
-        .catch(err => console.log(err))
+        }
+        
+    })
 })
 
 // single therapy page
