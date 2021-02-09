@@ -1,23 +1,15 @@
 <%- include('./partials/head') %>
 
 <article>
-     
 <h2><%= Therapy.therapy_name %></h2>
 
 <p><strong>Startdatum:</strong> <%= Therapy.start_date %></p>
 <p><strong>Enddatum:</strong> <%= Therapy.end_date %></p>
-
 <p><strong>Medikament:</strong> <%= Therapy.medicine %></h3>
 <p><strong>Einnahme-Rhytmus:</strong> <%= Therapy.rhythm %></p>
-
-<% Therapy.details.forEach(item => { %>
-<div>
-<h4>Einnahme # <%= item.index + 1 %></h4>
-<div><p>Uhrzeit: <%= item.take_time %></p> <p>Stücke: <%= item.portions %></p> <p>Mahlzeit: <%= item.meal %></p>
-</div>
-</div>
-<%})%>
-
+<p><strong>Uhrzeit:</strong> <%= Therapy.take_time[0] %></p> 
+<p><strong>Stücke:</strong> <%= Therapy.portions[0] %></p> 
+<p><strong>Mahlzeit:</strong> <%= Therapy.meal[0] %></p>
 
 </article>
               
