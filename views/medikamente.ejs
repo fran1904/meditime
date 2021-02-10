@@ -22,9 +22,9 @@
             <% let dosesRemaining = med.inventory / (ther.portions * ther.take_time.length) %>
             
             <% if (dosesRemaining <= 10){ %>
-                <p style="color:#7acdaa;"><%= dosesRemaining.toFixed(0) %> days stock</p>
-            <% } else { %>
                 <p style="color:red;"><%= dosesRemaining.toFixed(0) %> days stock</p>
+            <% } else { %>
+                <p style="color:#7acdaa;"><%= dosesRemaining.toFixed(0) %> days stock</p>
             <% } %>
 
             
