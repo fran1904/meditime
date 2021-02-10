@@ -7,8 +7,8 @@
 
 <h2><%= Therapy.therapy_name %></h2>
 
-<p><strong>Startdatum:</strong> <%= Therapy.start_date %></p>
-<p><strong>Enddatum:</strong> <%= Therapy.end_date %></p>
+<p><strong>Startdatum:</strong> <%= Therapy.start_date.toLocaleDateString() %></p>
+<p><strong>Enddatum:</strong> <%= Therapy.end_date.toLocaleDateString() %></p>
 <p><strong>Medikament:</strong> <%= Therapy.medicine %></h3>
 <p><strong>Einnahme-Rhytmus:</strong> <%= Therapy.rhythm %></p>
 <p><strong>Uhrzeit:</strong> <%= Therapy.take_time[0] %></p> 
