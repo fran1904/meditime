@@ -2,7 +2,7 @@
 
 
 <!-- <section id="therapie-plan"></section> -->
-<form action="/update-therapie" method="POST" id="myform">
+<form method="POST" action="/update-therapie/<%=Therapy.id%>?_method=PATCH"  id="myform">
     
 <input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename" value="<%=Therapy.therapy_name%>">
 
@@ -26,8 +26,8 @@
   <div class="bord"> -->
 <p>Einnahme-Rhytmus</p>
 <select name="rhythm"> 
-  <option value="Täglich" selected>Täglich</option>
-  <option value="Alle 2 Tage">Alle 2 Tage</option>
+  <option value="Täglich" >Täglich</option>
+  <option value="Alle 2 Tage">Alle 2 Tage</option> 
   <option value="Alle 3 Tage">Alle 3 Tage</option>
   <option value="Alle 4 Tage">Alle 4 Tage</option>
   <option value="Alle 5 Tage">Alle 5 Tage</option>

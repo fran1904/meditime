@@ -269,7 +269,7 @@ app.get('/update-therapie/:id', (req, res) => {
          .catch(err => console.log(err))
  })
 
- app.post('/update-therapie/:id', (req, res) => {
+ app.patch('/update-therapie/:id', (req, res) => {
     Therapy.findByIdAndUpdate(req.params.id, req.body)
         .then(result => res.redirect(`/single-therapie/${req.params.id}`))   
         .catch(err => console.log(err))
