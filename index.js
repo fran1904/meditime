@@ -66,6 +66,9 @@ app.get('/', (req, res) => {
     res.render('index', {title: "home"})
 })
 
+app.get('/webpage', (req, res) => {
+    res.render('webpage', {title: "webpage"})
+})
 
 app.get('/dashboard', (req, res) => {
     Therapy.find((err, data) => {
@@ -79,7 +82,7 @@ app.get('/dashboard', (req, res) => {
                     res.render('dashboard', { date: `${date} ${month} ${year}` , data: req.user, title: "Therapien", Therapies: data, Medicines: response })
                 }
             })
-        } 
+        }
     })
 })
 
