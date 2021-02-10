@@ -66,6 +66,9 @@ app.get('/', (req, res) => {
     res.render('index', {title: "home"})
 })
 
+app.get('/webpage', (req, res) => {
+    res.render('webpage', {title: "webpage"})
+})
 
 app.get('/dashboard', (req, res) => {
     Therapy.find((err, data) => {
@@ -79,20 +82,35 @@ app.get('/dashboard', (req, res) => {
                     res.render('dashboard', { date: `${date} ${month} ${year}` , data: req.user, title: "Therapien", Therapies: data, Medicines: response })
                 }
             })
-        } 
+        }
     })
 })
 
 
 // Load the index-of-docs page. This is an index page that loops through the DB documents, e.g. blogposts, quotes
+// app.get('/medikamente', authCheck, (req, res) => {
+//     Medicine.find()
+//         .then(data => {
+//         // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
+//         res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", Medicines: data })
+//         })
+//         .catch(err => console.log(err))
+// })
+
+
 app.get('/medikamente', authCheck, (req, res) => {
     Medicine.find()
         .then(data => {
-        // res.send(data) Use this to check the data arrives at '/'. Comment out the render method below first!
-        res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", Medicines: data })
+          Therapy.find()
+          .then(therapydata => {
+              res.render('medikamente', { date: `${date} ${month} ${year}` , data: req.user, title: "medikamente", 
+        Medicines: data, Therapies: therapydata})
         })
-        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
 })
+
+
 
 // ################# MEDICINE ROUTES #################
 app.get('/neue-medikament', (req, res) => {
@@ -269,7 +287,7 @@ app.get('/update-therapie/:id', (req, res) => {
          .catch(err => console.log(err))
  })
 
- app.post('/update-therapie/:id', (req, res) => {
+ app.patch('/update-therapie/:id', (req, res) => {
     Therapy.findByIdAndUpdate(req.params.id, req.body)
         .then(result => res.redirect(`/single-therapie/${req.params.id}`))   
         .catch(err => console.log(err))
