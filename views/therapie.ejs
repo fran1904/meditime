@@ -1,25 +1,34 @@
 <%- include('./partials/head') %>
 <%- include('./partials/profilehead') %>
-
-
-<section>
 <%- include('./partials/calendar') %>
-</section>
 
 
-    <div>
+    <div id="Therapie">
         <%Therapies.forEach(doc => { %>
         <%Medicines.forEach(m => { %>
 
             <% if(doc.medicine == m.product_name) { %>
 
-                <article>
-                   
+                <article class="therabieA">
+
+
+
+                    <div class="icon-wrap <%= (Medicines.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
+                    
+                        <img src="<%= (Medicines.drug_type == "Tablet") ? "../assets/img/pill.svg" : "../assets/img/syringe.svg" %>" alt="drug-icon">
+            
+                        <small class="<%= (Medicines.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= Medicines.inventory %></small>
+                    </div>
+
+                    <div class="TheName">
                         <h2><a href="/single-therapie/<%= doc.id %>"><%= doc.therapy_name %></a></h2>
-                        <p><a href="/single-med/<%= m.id %>"><%= m.product_name %></a></p>
-                        <p><%= doc.rhythm %> <%= doc.meal[0] %></p>
-                        <p><%= m.drug_type %> <%= m.dose %><%= (m.drug_type == "Tablet") ? "mg" : "ml" %></p>
+                        
+                        <p class="PR"><a href="/single-med/<%= m.id %>"><%= m.product_name %></a></p>
+                        <p class="PR"><%= doc.rhythm %> <%= doc.meal[0] %></p>
+                    </div>
+                        <div class="mml" > 
                         <p><%= m.inventory %></p>
+                        </div>
                 
                     <form method="POST" action="/medicine-update/<%=m._id%>/<%=m.inventory%>?_method=UPDATE">
                         <button type="submit"><i class="fas fa-check"></i></button>
@@ -30,7 +39,7 @@
         <%})%>          
         <%})%>
     </div>
-    <a href="/neue-therapie">+ Therapie anlegen</a>
+    <a class="Neue-therpie" href="/neue-therapie">+ Therapie anlegen</a>
     
 
 

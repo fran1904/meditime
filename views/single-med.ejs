@@ -2,7 +2,6 @@
 <%- include('./partials/newhead') %>
 <div id="single-med f-container">
 
-    <!-- <a class="Back" href="/medikamente"> Medikament anlegen</a> -->
         
     <section id="single-med">
     <article class="med-wrap">
@@ -15,33 +14,10 @@
         </div>
         <h3><%= Medicine.product_name %> </h3>
         <p class="mb-10"> <%= Medicine.drug_type %> <%= Medicine.dose %><%= (Medicine.drug_type == "Tablet") ? "mg" : "ml" %></p>
-        <p>10 days stock</p>
+        <p class="mb-10"> 10 days stock</p>
         
     </article>
 </section>
-
-
-
-
-    <!-- <div id="Formular">
-   
-        <form action="/neue-medikament" method="POST">
-          ​
-              <input class="product_name" type="text" name="product_name" placeholder="Produktname">
-          ​
-              <input class="dose" type="text" name="dose" placeholder="Dosierung in ml/mg">
-          ​
-              <select class="select" name="drug_type" placeholder="Darreichungsformen">
-                  <option class="Tablette" value="Tablet" selected>Tablette</option>
-                  <option value="Injection">Injektion</option>
-              </select>
-          ​
-              <input class="inventory" type="text" name="inventory" placeholder="Inventory">
-  
-              <input class="Weiter" type="submit" value="Weiter"> 
-      
-          </form>
-      </div> -->
                   
 
     <a class="SM-Aktulalisieren" href="/update-medikament/<%= Medicine.id %>">Medikament aktualisieren</a>

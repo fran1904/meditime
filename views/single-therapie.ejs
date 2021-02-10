@@ -1,5 +1,5 @@
 <%- include('./partials/head') %>
-
+<%- include('./partials/newhead') %>
 
 <article id="single-therapie">
      
@@ -18,10 +18,10 @@
 </article>
               
 
-<a href="/update-therapie/<%= Therapy.id %>">Therapie aktualisieren</a>
+<a class="SM-Aktulalisieren" href="/update-therapie/<%= Therapy.id %>">Therapie aktualisieren</a>
 
-<form method="POST" action="/delete-therapy/<%=Therapy.id%>?_method=DELETE">
-    <button type="submit">Löschen</button>
+<form method="POST"  action="/delete-therapy/<%=Therapy.id%>?_method=DELETE">
+    <button class="SM-löschen" type="submit">Löschen</button>
 </form>
 
 

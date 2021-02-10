@@ -1,12 +1,13 @@
 <%- include('./partials/head') %>
+<%- include('./partials/newhead') %>
 
 
 <section id="therapie-plan">
 <form action="/neue-therapie" method="POST" id="myform">
     
-<input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename">
 
-<a class="Back" href="/therapie"> züruck zu Therpaie</a>
+
+<input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename">
 <div class="date-input">
   
 <input type="date" name="start_date" class="date">
@@ -21,10 +22,6 @@
     <% }) %>
 </select>
 </div>
-
-
-
-
 
 
  <div id="tagen">
@@ -85,7 +82,7 @@
 </div>
 <input class="Übernehmen" type="submit" value="Übernehmen">
 </form>
-<!-- <div class="untereBord"></div> -->
+<div class="untereBord"></div>
 </section>
 
 
