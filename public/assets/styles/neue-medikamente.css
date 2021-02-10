@@ -24,7 +24,6 @@
      rgba(144, 164, 183, 0.22);
     border-radius: 4px;
     height: 54px;
-    font-size: 21px;
     border: none;
     padding: 3%;
     /* color: rgba(147, 166, 185, 0.5); */
@@ -32,7 +31,7 @@
 }
 .select{
     background: #FFFFFF;
-    color: rgba(147, 166, 185, 0.5);
+    /* color: rgba(147, 166, 185, 0.5); */
 
   
 }
@@ -41,7 +40,7 @@
 .product_name, .dose, .select{
     width: 90%;
     margin:2% 5% 2% 5%;
-    color: rgba(147, 166, 185, 0.5);
+    /* color: rgba(147, 166, 185, 0.5); */
     
 }
 
@@ -76,13 +75,10 @@
     font-size: 18px;
     line-height: 22px;
     font-family: Roboto;
-    display: block;
+    /* display: block; */
 
 }
 
-/* #Formular::placeholder{
-    color: rgba(147, 166, 185, 0.5);
-} */
 
 
 

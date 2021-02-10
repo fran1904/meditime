@@ -1,32 +1,32 @@
 <%- include('./partials/head') %>
 
 
-<!-- <section id="therapie-plan"></section> -->
+<section id="update-therapie-plan">
 <form action="/update-therapie" method="POST" id="myform">
     
-<input type="text" id="therapy-name" name="therapy_name" placeholder="Therapiename" value="<%=Therapy.therapy_name%>">
+<input type="text" id="update-therapie-name" name="therapy_name" placeholder="Therapiename" value="<%=Therapy.therapy_name%>">
 
-<!-- <div class="date-input"></div> -->
-<input type="date" name="start_date" value="<%=Therapy.start_date%>">
-<input type="date" name="end_date" value="<%=Therapy.end_date%>">
-<!-- </div> -->
+<div class="therapie-date-input">
+<input type="date" class="therapie-date" name="start_date" value="<%=Therapy.start_date%>">
+<input type="date" class="therapie-date" name="end_date" value="<%=Therapy.end_date%>">
+</div>
 
-<!-- <div class="select"> -->
-<select name="medicine"> 
+<div class="select">
+<select name="medicine" id="therapie-medicine-select"> 
     <option value="" disabled selected>Medikament auswählen</option>
     <% Medicines.forEach((doc) => { %>
         <option value="<%= doc.product_name %>"><%= doc.product_name %></option>
     <% }) %>
 </select>
+</div>
 
-<!-- </div> -->
+<div id="tagen">
 
-<!-- <div id="tagen">
+  <div class="bord">
+<p class="Einnahme">Einnahme-Rhytmus</p>
 
-  <div class="bord"> -->
-<p>Einnahme-Rhytmus</p>
-<select name="rhythm"> 
-  <option value="Täglich" selected>Täglich</option>
+<select name="rhythm"  class="therpie-tegen-select"> 
+  <option value="Täglich" selected>täglich</option>
   <option value="Alle 2 Tage">Alle 2 Tage</option>
   <option value="Alle 3 Tage">Alle 3 Tage</option>
   <option value="Alle 4 Tage">Alle 4 Tage</option>
@@ -41,8 +41,8 @@
 <fieldset id="firstFieldset">
     <input type="time" name="take_time" value="<%=Therapy.take_time%>">
 
-    <select name="portions"> 
-        <option value="" disabled selected># Stück</option>
+    <select name="portions" class="Stück"> 
+        <option value="" disabled selected>Stück</option>
         <option value="1">1 Stück</option>
         <option value="2">2 Stück</option>
         <option value="3">3 Stück</option>
@@ -50,8 +50,8 @@
         <option value="5">5 Stück</option>
       </select>
 
-      <select name="meal"> 
-        <option value="" disabled selected>Mahlzeit</option>
+      <select name="meal" class="meal"> 
+        <option value="" disabled selected> <img class="MealF" src="../assets/img/Frame.svg" alt=""> meal</option>
 
         <option value="Vor dem Frühstuck">Vor dem Frühstuck</option>
         <option value="Zum Frühstuck">Zum Frühstuck</option>
@@ -70,16 +70,17 @@
       <i class="far fa-trash-alt delete "></i>
 </fieldset>
 
-<a href="#" onclick="duplicateFieldset()" style="display: block; height: 50px; font-size: 30px; border:1px solid lightgrey; text-align: center;">+</a>
+<a href="#"  class="therapie-plus" onclick="duplicateFieldset()">+</a>
 
-<!-- </div>
-</div> -->
+</div>
+</div>
 
 
-<input type="submit" value="Übernehmen">
+<input class="Übernehmen" type="submit" value="Übernehmen">
 </form>
+<div class="untereBord"></div>
 
-<!-- </section> -->
+</section>
 
 
 
@@ -146,4 +147,4 @@
 
 
 <%- include('./partials/nav') %>
-<%- include('./partials/footer') %>
+

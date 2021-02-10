@@ -245,7 +245,7 @@ app.post('/neue-therapie', (req, res) => {
 app.get('/single-therapie/:id', (req, res) => {
     Therapy.findById(req.params.id)
          .then(data => {
-             res.render('single-therapie', { title: "Meine Therapie", Therapy: data })    // Note that you DON'T need to include /:id in this line
+             res.render('single-therapie', { title: "Meine Therapie", Therapy: data ,data: req.user})    // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  }) 
@@ -263,7 +263,7 @@ app.get('/update-therapie/:id', (req, res) => {
          .then(data => {
             Medicine.find()
             .then(meddata => {
-                res.render('update-therapie', { title: "Update Therapie", Therapy: data, Medicines: meddata })  
+                res.render('update-therapie', { title: "Update Therapie", Therapy: data, Medicines: meddata ,data: req.user})  
             })
          })
          .catch(err => console.log(err))
