@@ -1,11 +1,11 @@
-/* ::placeholder{
+::placeholder{
     color: #314259;
-} */
+}
 
 #update-therapie-plan{
     background: #fafafab7;
     display: relative;
-    height: 750px;
+    min-height: 80vh;
     padding-top: 15%;
 }
 #update-therapie-name{
@@ -38,7 +38,7 @@
     height: 44px;
     font-size: 21px;
     color: #314259;
-    font-family: Lato;
+    font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 21px;
@@ -120,7 +120,7 @@
     line-height: 25px;
 
 }
-#firstFieldset input,.Stück,.meal{
+#firstFieldset input, .Stück, .meal{
     height:44px;
     border: 1px solid #979797;
     background-color: #FFFFFF;
@@ -129,7 +129,7 @@
     text-align: center;
     color: #314259;
     font-size: 21px;
-    font-family: Lato;
+    font-family: Roboto;
 }
 
 .MealF{
@@ -157,7 +157,7 @@
     height: 64px;
     border: none;
     color: #FFFFFF;
-    font-family: Lato;
+    font-family: Roboto;
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
@@ -172,3 +172,18 @@
     width: 90%;
     margin-left: 5%;
 }
+
+legend {
+    padding: 0;
+    display: table;
+  }
+  fieldset {
+    border: 0;
+    padding: 0.01em 0 0 0;
+    margin: 0;
+    min-width: 0;
+  }
+  body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+  }
+  

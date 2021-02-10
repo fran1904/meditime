@@ -1,47 +1,63 @@
 #Therapie{
-    min-height:100vh
+  min-height:70vh;
+  position: relative;
 }
 
 #Therapie article{
-    margin-top: 10%;
-    font-size: 21px;
-    box-shadow: 0px 6px 18px
-     rgba(144, 164, 183, 0.22);
-    border-radius: 4px;
-    font-size: 21px;
-    border: none;
-    padding: 3%;
-    display: flex;
-    min-height: 100px;
-    margin: 5% 5% 0 5%;
-    
+
+  font-size: 21px;
+  box-shadow: 0px 6px 18px
+   rgba(144, 164, 183, 0.22);
+  border-radius: 4px;
+  font-size: 21px;
+  border: none;
+  padding: .5rem 3%;
+  display: flex;
+  align-items: center;
+  /* min-height: 100px; */
+  margin: 1rem;
+  position: relative;
 }
 
 
 
-#Therapie img{
+/* #Therapie img{
     margin-top: 25%;
     margin-right: 5%;
+} */
+
+#Therapie .icon-wrap {
+  position: relative;
 }
 
 #Therapie .icon-wrap-purple {
-    background: #b88ce2;
-    border-radius: 10px;
+  background: #b88ce2;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px
   }
   
   #Therapie .icon-wrap-yellow {
     background: #FDEEE0;
     border-radius: 10px;
-    height: 6%;
+    height: 40px;
+    width: 40px
   }
   
   #Therapie .icon-wrap-purple img {
-    height: 5vh;
+    width: 35px;
+    position: absolute;
+    top: 52%;
+    left: 53%;
+  transform: translate(-50%, -50%);
 
   }
   #Therapie .icon-wrap-yellow img {
-    height: 4vh;
-    width: 100%;
+    width: 23px;
+  position: absolute;
+  top: 48%;
+  left: 53%;
+  transform: translate(-50%, -50%);
   }
   
   
@@ -56,47 +72,56 @@
 }
 
 
-.TheName{
+#Therapie .TheName{
     padding-left: 5%;
     color: #999999;
 }
 
 .therabieA h2{
-    font-size: 17px;
-    color: #314259;
-    font-family: Roboto;
+  padding-bottom: 5px;
+  font-size: 1.05rem;
+  color: #314259;
+  font-family: Roboto;
 }
 
-.PR{
-    font-size: 16px;
-    font-family: Roboto;
+#Therapie .PR{
+  font-size: .9rem;
+  font-weight: 300;
+  font-family: Roboto;
 }
 
 
 
-.Neue-therpie{
-    background: #79CCAA;
-    color: #ffffff;
-    font-family: Lato;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-
+#Therapie .Neue-therpie{
+  position: absolute;
+  bottom: 0;
+left: 0;
+right: 0;
+  background: #79CCAA;
+  color: #ffffff;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
 }
 
-.mml{
-    font-size: 16px;
-    position: absolute;
-    right: 15%;
-   padding-top: 9%;
+#Therapie .mml{
+  color: #79CCAA;
+  font-size: 16px;
+  position: absolute;
+  right: 45px;
+  top: 20px;
+ padding-top: 0;
 }
 
 #Therapie i{
-    position: absolute;
-    right: 7%;
-    padding-top: 5%;
+  color: #79CCAA;
+  position: absolute;
+  right: 7%;
+  top: 23px;
+  padding-top: 0;
   }

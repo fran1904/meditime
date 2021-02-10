@@ -13,11 +13,11 @@
 
 
 
-                    <div class="icon-wrap <%= (Medicines.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
+                    <div class="icon-wrap <%= (m.drug_type == "Tablet") ? "icon-wrap-purple" : "icon-wrap-yellow" %>">
                     
-                        <img src="<%= (Medicines.drug_type == "Tablet") ? "../assets/img/pill.svg" : "../assets/img/syringe.svg" %>" alt="drug-icon">
+                        <img src="<%= (m.drug_type == "Tablet") ? "../assets/img/pill.svg" : "../assets/img/syringe.svg" %>" alt="drug-icon">
             
-                        <small class="<%= (Medicines.drug_type == "Tablet") ? "dark-purple" : "dark-yellow" %>"><%= Medicines.inventory %></small>
+                    
                     </div>
 
                     <div class="TheName">
@@ -38,8 +38,9 @@
             <% } %>
         <%})%>          
         <%})%>
+        <a class="Neue-therpie" href="/neue-therapie">+ Therapie anlegen</a>
     </div>
-    <a class="Neue-therpie" href="/neue-therapie">+ Therapie anlegen</a>
+    
     
 
 

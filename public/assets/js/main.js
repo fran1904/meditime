@@ -46,9 +46,6 @@ const incMe = () => {
 }
 
 
-
-
-
 for (let i = -2; i <= 3; i++) {
     const week = new Date(startDate)
     week.setDate(week.getDate() + i)

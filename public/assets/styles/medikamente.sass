@@ -2,6 +2,8 @@ $primary: hsl(155, 45%, 64%)
 $muted: #666666
     
 #medikamente
+    min-height: 80vh
+    position: relative
     h3
         margin-top: 10px
     h3 + p
@@ -65,6 +67,8 @@ $muted: #666666
         padding: 30px 0
         width: 100%
         background: $primary
+        position: absolute
+        bottom: 0
         transition: background-color .5s ease
         &:hover
             background-color: darken($primary, 10)

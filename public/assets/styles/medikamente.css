@@ -1,3 +1,8 @@
+#medikamente {
+  min-height: 80vh;
+  position: relative;
+}
+
 #medikamente h3 {
   margin-top: 10px;
 }
@@ -7,7 +12,7 @@
 }
 
 #medikamente h3, #medikamente p {
-  font-family: Roboto;
+  font-family: 'Roboto';
 }
 
 #medikamente .grid-container {
@@ -43,16 +48,9 @@
 #medikamente .icon-wrap-purple {
   background: #F0E5FA;
 }
-#medikamente .icon-wrap-purple img {
-  height: 15vh;
-}
 
 #medikamente .icon-wrap-yellow {
   background: #FDEEE0;
-}
-
-#medikamente .icon-wrap-yellow img{
-  height: 10vh;
 }
 
 #medikamente .dark-purple {
@@ -84,6 +82,8 @@
   padding: 30px 0;
   width: 100%;
   background: #7acdaa;
+  position: absolute;
+  bottom: 0;
   -webkit-transition: background-color .5s ease;
   transition: background-color .5s ease;
 }

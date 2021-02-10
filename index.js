@@ -79,7 +79,7 @@ app.get('/dashboard', (req, res) => {
                 if(err) {
                     res.json(err)
                 }else{
-                    res.render('dashboard', { date: `${date} ${month} ${year}` , data: req.user, title: "Therapien", Therapies: data, Medicines: response })
+                    res.render('dashboard', { date: `${date} ${month} ${year}` , data: req.user, title: "dashboard", Therapies: data, Medicines: response })
                 }
             })
         }
@@ -114,7 +114,7 @@ app.get('/medikamente', authCheck, (req, res) => {
 
 // ################# MEDICINE ROUTES #################
 app.get('/neue-medikament', (req, res) => {
-    res.render('neue-medikament', {data: req.user, title: "Neues Medikament"})
+    res.render('neue-medikament', {data: req.user, title: "medikamente"})
 })
 
 // Creates a new DB entry from the frontend with POST
@@ -133,7 +133,7 @@ app.post('/neue-medikament', (req, res) => {
 app.get('/single-med/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('single-med', { title: "My Medikament", Medicine: data ,data: req.user})    // Note that you DON'T need to include /:id in this line
+             res.render('single-med', { title: "medikamente", Medicine: data ,data: req.user})    // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  }) 
@@ -148,7 +148,7 @@ app.delete('/delete/:id', (req, res) => {
 app.get('/update-medikament/:id', (req, res) => {
     Medicine.findById(req.params.id)
          .then(data => {
-             res.render('update-medikament', { title: "My Medikament", Medicine: data ,data: req.user})   // Note that you DON'T need to include /:id in this line
+             res.render('update-medikament', { title: "medikamente", Medicine: data ,data: req.user})   // Note that you DON'T need to include /:id in this line
          })
          .catch(err => console.log(err))
  })
@@ -179,7 +179,7 @@ app.get('/auth/google/callback',
 passport.authenticate('google', { failureRedirect: '/' }),
 function(req, res) {
   // Successful authentication, redirect home.
-  res.redirect('/profile');
+  res.redirect('/dashboard');
 });
 
 app.get('/auth/logout', (req, res) => {
@@ -228,7 +228,7 @@ app.get('/therapie', (req, res) => {
                 if(err) {
                     res.json(err)
                 }else{
-                    res.render('therapie', { date: `${date} ${month} ${year}` , data: req.user, title: "Therapien", Therapies: data, Medicines: response })
+                    res.render('therapie', { date: `${date} ${month} ${year}` , data: req.user, title: "therapie", Therapies: data, Medicines: response })
                 }
             })
         } 
