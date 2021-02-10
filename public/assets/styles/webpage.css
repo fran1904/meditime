@@ -1,0 +1,56 @@
+#webpage {
+  padding: 5vh 10rem;
+  min-height: 100vh;
+  background: #79CCAA;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+}
+
+#webpage .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#webpage h1 {
+  font-size: 3rem;
+  color: #314259;
+  margin-bottom: 2vh;
+}
+
+#webpage h2 {
+  font-size: 2rem;
+  margin-top: -2rem;
+  margin-bottom: 5vh;
+  color: white;
+}
+
+#webpage .phone {
+  width: 75%;
+  -webkit-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+}
+
+#webpage .appstore {
+  width: 12rem;
+}
+/*# sourceMappingURL=webpage.css.map */
